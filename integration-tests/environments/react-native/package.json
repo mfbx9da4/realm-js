@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepare": "pod-install",
     "start": "react-native start",
     "lint": "eslint .",
     "test": "npm run test:android && npm run test:ios",

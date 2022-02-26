@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "private": true,
   "scripts": {
+    "prepare": "npm run build",
     "build": "rollup -c && tsc --noEmit",
     "start": "node start.js --watch",
     "start:missing-server": "CONTEXT=missingServer,$CONTEXT npm start",

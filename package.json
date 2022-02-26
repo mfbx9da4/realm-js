@@ -45,7 +45,7 @@
     "CMakeLists.txt"
   ],
   "scripts": {
-    "workspaces:lint": "npm run lint --workspaces",
+    "workspaces:lint": "npm run lint --workspaces --if-present",
     "lint": "eslint .",
     "get-version": "node -p process.env.npm_package_version",
     "set-version": "scripts/set-version.sh",
@@ -76,12 +76,18 @@
     "postinstall": "node scripts/submit-analytics.js"
   },
   "workspaces": [
-    ".",
-    "packages/*",
+    "packages/realm-app-importer",
+    "packages/metro-config",
+    "packages/realm-common",
+    "packages/realm-network-transport",
+    "packages/realm-web",
+    "packages/realm-web-integration-tests",
+    "packages/realm-react",
     "packages/realm-react/example",
     "integration-tests",
     "integration-tests/tests",
-    "integration-tests/environments/*"
+    "integration-tests/environments/*",
+    "."
   ],
   "dependencies": {
     "@realm.io/common": "^0.1.1",
