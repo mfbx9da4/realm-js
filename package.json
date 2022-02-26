@@ -45,9 +45,7 @@
     "CMakeLists.txt"
   ],
   "scripts": {
-    "lerna:bootstrap": "lerna bootstrap",
-    "lerna:lint": "lerna run lint",
-    "lerna:lint:fix": "lerna run lint --no-bail -- -- --fix",
+    "workspaces:lint": "npm run lint --workspaces",
     "lint": "eslint .",
     "get-version": "node -p process.env.npm_package_version",
     "set-version": "scripts/set-version.sh",
@@ -77,6 +75,14 @@
     "lint:fix:cpp": "find src -name \"*.?pp\" | xargs clang-format -i",
     "postinstall": "node scripts/submit-analytics.js"
   },
+  "workspaces": [
+    ".",
+    "packages/*",
+    "packages/realm-react/example",
+    "integration-tests",
+    "integration-tests/tests",
+    "integration-tests/environments/*"
+  ],
   "dependencies": {
     "@realm.io/common": "^0.1.1",
     "bindings": "^1.5.0",
@@ -131,7 +137,6 @@
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-xml-reporter": "^1.2.1",
     "jsdoc": "3.6.3",
-    "lerna": "^4.0.0",
     "license-checker": "^8.0.3",
     "mockery": "^2.0.0",
     "prebuild": "^10.0.1",

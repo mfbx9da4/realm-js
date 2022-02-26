@@ -21,7 +21,7 @@
 import puppeteer from "puppeteer";
 import WebpackDevServer from "webpack-dev-server";
 import webpack from "webpack";
-import MochaRemote from "mocha-remote";
+import MochaRemote from "mocha-remote-server";
 
 import { importRealmApp } from "./import-realm-app";
 

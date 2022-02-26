@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "build": "rollup -c && tsc --noEmit",
-    "prepare": "npm run build",
     "start": "node start.js --watch",
     "start:missing-server": "CONTEXT=missingServer,$CONTEXT npm start",
     "start:performance": "CONTEXT=missingServer,performance,integration=false,$CONTEXT npm start",
