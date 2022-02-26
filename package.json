@@ -45,7 +45,7 @@
     "CMakeLists.txt"
   ],
   "scripts": {
-    "workspaces:lint": "npm run lint --workspaces --if-present",
+    "workspaces:lint": "npm run lint --workspaces --if-present --",
     "lint": "eslint .",
     "get-version": "node -p process.env.npm_package_version",
     "set-version": "scripts/set-version.sh",
