@@ -36,10 +36,8 @@ jobs:
         xcode:
           # - 12.5
           - 13.1
-        npm:
-          - 7
         node:
-          - 14
+          - 16
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app
     steps:
@@ -47,8 +45,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - name: Install npm v7
-        run: npm install -g npm@7
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1
         with:
