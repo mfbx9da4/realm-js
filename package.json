@@ -46,6 +46,8 @@
   ],
   "scripts": {
     "workspaces:lint": "npm run lint --workspaces --if-present --",
+    "workspaces:build": "npm run build --workspaces --if-present",
+    "prepare": "npm run workspaces:build",
     "lint": "eslint .",
     "get-version": "node -p process.env.npm_package_version",
     "set-version": "scripts/set-version.sh",
