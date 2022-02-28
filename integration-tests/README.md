@@ -27,7 +27,7 @@ node scripts/build-android.js --arch=x86 --build-type=Debug
 This repository is a Lerna mono-repository, meaning that individual packages are installed and interdependent packages are automatically linked. To install and link packages, run Lernas "bootstrap" command from the root of the repository:
 
 ```bash
-npx lerna bootstrap
+npm install --workspaces
 ```
 
 It's advised to have two terminals open, one occasionally running `npm run build-changes` (from the project root directory) when changes are made to the C++ source-code of Realm JS and another running `npm start` (from the `./tests` directory) to continuously run the integration tests when code change.

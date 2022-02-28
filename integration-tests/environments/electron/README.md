@@ -3,7 +3,7 @@
 To install this environment, run the following command from the root directory of repository:
 
 ```bash
-npx lerna bootstrap --scope realm-electron-tests --include-dependencies
+npm install --workspaces
 ```
 
 Currently this directory consists of:
