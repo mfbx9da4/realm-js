@@ -27,6 +27,7 @@ x.x.x Release notes (yyyy-MM-dd)
 * Fixed analytics to read the `realm/package.json` when installing from the root of the package.
 * Fixed React Native Android integration test harness to read only one pid when starting logcat.
 * Added a script to generate JS template apps from TS, and updated JS templates. ([4374](https://github.com/realm/realm-js/pull/4374))
+* Migrated mono-repo from Lerna to NPM workspaces
 
 10.13.0 Release notes (2022-2-11)
 =============================================================
