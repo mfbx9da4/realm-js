@@ -263,11 +263,14 @@ The generated docs can be found in `docs/output/realm/<version>/index.html`.
 
 ## Installing the project's sub-packages
 
-We've decided to slowly migrate this repository to a mono-repository containing multiple packages (stored in the `./packages` directory). To install and link these, run (from the `realm-js` repo root directory):
+We've decided to slowly migrate this repository to a mono-repository containing multiple packages (stored in the `./packages` directory).
+To install and link these, run (from the `realm-js` repo root directory):
 
 ```sh
-npm install --workspaces
+npm install
 ```
+
+Please ensure you run with NPM v8 and familiarise yourself with NPM workspaces: https://docs.npmjs.com/cli/v8/using-npm/workspaces
 
 ## Running the tests
 

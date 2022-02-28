@@ -3,7 +3,7 @@
 To install this environment, run the following command from the root directory of repository:
 
 ```bash
-npm install --workspaces
+npm install
 ```
 
 Currently this directory consists of:
