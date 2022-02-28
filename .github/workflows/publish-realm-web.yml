@@ -18,7 +18,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       # Install the root package (--ignore-scripts to avoid downloading or building the native module)
-      - run: npm ci --workspaces
+      - run: npm ci
       # Test the package
       - run: npm test
         working-directory: packages/realm-web

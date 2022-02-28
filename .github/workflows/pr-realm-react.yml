@@ -49,7 +49,7 @@ jobs:
         run: echo PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH" >> $GITHUB_ENV
 
       - name: Install realm node dependencies
-        run: npm ci --workspaces
+        run: npm ci
 
       - name: Prebuild release binary
         run: npx prebuild

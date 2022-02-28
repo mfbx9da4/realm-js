@@ -79,7 +79,7 @@ jobs:
       - name: Prepend ccache executables to the PATH
         run: echo PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH" >> $GITHUB_ENV
       # Install dependencies of all workspaces
-      - run: npm ci --workspaces
+      - run: npm ci
       # Build the native module
       - name: Prebuild release binary
         run: npx prebuild
@@ -120,7 +120,7 @@ jobs:
         run: echo PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH" >> $GITHUB_ENV
 
       # Install dependencies of all workspaces
-      - run: npm ci --workspaces
+      - run: npm ci
       # Build the native module
       - name: Prebuild release binary
         run: npx prebuild
@@ -187,7 +187,7 @@ jobs:
       - name: Patch package.json to avoid building Node.js native module
         run: cat <<< $(jq '.scripts.install = "echo skipping building Node.js binary"' < package.json) > package.json
       # Install dependencies of all workspaces (performs the pod install too)
-      - run: npm ci --workspaces
+      - run: npm ci
       # Build the iOS xcframework
       - run: ./scripts/build-ios.sh -c ${{ matrix.type }} ${{matrix.platform.build-configuration}}
       - name: Invoke the simulator (making subsequent "open -a Simulator" calls work)
@@ -260,7 +260,7 @@ jobs:
       - name: Patch package.json to avoid building Node.js native module
         run: cat <<< $(jq '.scripts.install = "echo skipping building Node.js binary"' < package.json) > package.json
       # Install dependencies of all workspaces
-      - run: npm ci --workspaces
+      - run: npm ci
         if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
       # Build the Android shared object file
       - run: ANDROID_NDK=$ANDROID_NDK_HOME node scripts/build-android.js --arch=x86 --build-type=${{ matrix.type }}
