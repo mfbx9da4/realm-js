@@ -186,10 +186,13 @@ jobs:
       # TODO: Expose a way to skip building the Node.js native module
       - name: Patch package.json to avoid building Node.js native module
         run: cat <<< $(jq '.scripts.install = "echo skipping building Node.js binary"' < package.json) > package.json
-      # Install dependencies of all workspaces (performs the pod install too)
+      # Install dependencies of all workspaces
       - run: npm ci
       # Build the iOS xcframework
       - run: ./scripts/build-ios.sh -c ${{ matrix.type }} ${{matrix.platform.build-configuration}}
+      # Perform a pod-install in the test app
+      - run: npm run pod-install --workspace realm-react-native-tests
+      # Open the simulator as a workaround
       - name: Invoke the simulator (making subsequent "open -a Simulator" calls work)
         run: open -a ${{ env.DEVELOPER_DIR }}/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator
       # Run the tests
