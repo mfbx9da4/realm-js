@@ -12,6 +12,7 @@
     "./dist/bundle.d.ts": "./dist/bundle.dom.d.ts"
   },
   "scripts": {
+    "prepare": "npm run build",
     "generate-types": "tsc --project tsconfig.types.json --declaration --emitDeclarationOnly --declarationDir types/generated",
     "build": "npm run generate-types && rollup --config",
     "lint": "eslint --ext .js,.ts .",
