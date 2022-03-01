@@ -88,7 +88,7 @@ jobs:
         run: npx prebuild --debug
         if: ${{ matrix.type == 'debug' }}
       # Run tests
-      - run: npm test --prefix integration-tests/environments/node
+      - run: npm test --workspace realm-node-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
@@ -126,12 +126,12 @@ jobs:
         run: npx prebuild
       # Run tests (using xvfb-run to enable opening windows in a virtual framebuffer)
       - name: Run tests (Electron / Main)
-        run: xvfb-run npm run test:main --prefix integration-tests/environments/electron
+        run: xvfb-run npm run test:main --workspace realm-electron-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
       - name: Run tests (Electron / Renderer)
-        run: xvfb-run npm run test:renderer --prefix integration-tests/environments/electron
+        run: xvfb-run npm run test:renderer --workspace realm-electron-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
@@ -197,7 +197,7 @@ jobs:
         run: open -a ${{ env.DEVELOPER_DIR }}/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator
       # Run the tests
       - name: Run tests (${{matrix.platform.name}}/ Native)
-        run: npm run test:${{matrix.platform.name}} --prefix integration-tests/environments/react-native
+        run: npm run test:${{matrix.platform.name}} --workspace realm-react-native-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
@@ -206,7 +206,7 @@ jobs:
           RETRY_DELAY: 300000 # 5 min
       - name: Run tests (${{matrix.platform.name}} / Chrome Debugging)
         if: ${{ false }}
-        run: npm run test:${{matrix.platform.name}}:chrome --prefix integration-tests/environments/react-native
+        run: npm run test:${{matrix.platform.name}}:chrome --workspace realm-react-native-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
@@ -275,7 +275,7 @@ jobs:
           # ndk: 21.0.6113669
           # cmake: 3.18.1
           target: google_apis
-          script: npm run test:android --prefix integration-tests/environments/react-native
+          script: npm run test:android --workspace realm-react-native-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
@@ -287,7 +287,7 @@ jobs:
         with:
           api-level: 29
           target: google_apis
-          script: npm run test:android:chrome --prefix integration-tests/environments/react-native
+          script: npm run test:android:chrome --workspace realm-react-native-tests
         env:
           MOCHA_REMOTE_CONTEXT: missingServer
           MOCHA_REMOTE_REPORTER: mocha-github-actions-reporter
