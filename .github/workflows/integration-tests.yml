@@ -51,8 +51,6 @@ jobs:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org/
       - name: Install npm v8
-        # TODO: Remove the following line once we've found a workaround for https://github.com/dotnet/msbuild/issues/5726
-        if: ${{ runner.os != 'Windows' }}
         run: npm install -g npm@8
       # The following is a noop on non-windows runners
       - name: Install Microsoft Visual C++ cmd tools
