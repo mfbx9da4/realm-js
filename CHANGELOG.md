@@ -4,8 +4,7 @@ x.x.x Release notes (yyyy-MM-dd)
 * None.
 
 ### Fixed
-* <How to hit and notice issue? what was the impact?> ([#????](https://github.com/realm/realm-js/issues/????), since v?.?.?)
-* None.
+* Updated build script to use Xcode 12.4 to ensure xcframework is Bitcode compatibile with older versions ([#4462](https://github.com/realm/realm-js/issues/4462), since v10.0.0)
 
 ### Compatibility
 * MongoDB Realm Cloud.
