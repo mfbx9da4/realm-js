@@ -50,6 +50,11 @@ The following dependencies are required. All except Xcode can be installed by fo
   - Optionally, you can install [Android Studio](https://developer.android.com/studio)
 - [Android NDK 21.0](https://developer.android.com/ndk/downloads/index.html)
 - [Android CMake](https://developer.android.com/ndk/guides/cmake)
+- Bison and Flex installed from [Homebrew](https://brew.sh/) and added to your PATH so they take precedence over the MacOS installed version – e.g. add to your `.zshrc`:
+    ```
+    export PATH="/usr/local/opt/bison/bin:$PATH"
+    export PATH="/usr/local/opt/flex/bin:$PATH"
+    ```
 
 Moreover, in order to avoid introducing false positives in our analytics dataset, it is highly recommended to disable analytics by adding the following to your shell configuration:
 
