@@ -263,6 +263,10 @@ RCT_REMAP_METHOD(emit, emitEvent:(NSString *)eventName withObject:(id)object) {
 - (void)invalidate {
     RJSInvalidateCaches();
 #if DEBUG
+    // Immediately close any open sync sessions to prevent race condition with new JS thread 
+    // when hot reloading
+    RJSCloseSyncSessions();
+    
     // shutdown rpc if in chrome debug mode
     [self shutdownRPC];
 #endif

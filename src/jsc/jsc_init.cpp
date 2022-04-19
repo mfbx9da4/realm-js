@@ -60,9 +60,17 @@ void RJSInitializeInContext(JSContextRef ctx)
 void RJSInvalidateCaches()
 {
     // Close all cached Realms
-    realm::_impl::RealmCoordinator::clear_all_caches();
+    realm::_impl::RealmCoordinator::clear_cache();
     // Clear the Object Store App cache, to prevent instances from using a context that was released
     realm::app::App::clear_cached_apps();
+}
+
+void RJSCloseSyncSessions()
+{
+    // Force all sync sessions to close immediately. This prevents the new JS thread
+    // from opening a new sync session while the old one is still active when reloading
+    // in dev mode.
+    realm::_impl::RealmCoordinator::log_out_all_sync_sessions();
 }
 
 } // extern "C"
