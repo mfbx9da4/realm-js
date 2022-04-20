@@ -4,6 +4,7 @@ x.x.x Release notes (yyyy-MM-dd)
 * None.
 
 ### Fixed
+* Fixed race condition leading to potential crash when hot reloading an app using Realm Sync ([4509](https://github.com/realm/realm-js/pull/4509), since v10.12.0)
 * <How to hit and notice issue? what was the impact?> ([#????](https://github.com/realm/realm-js/issues/????), since v?.?.?)
 * None.
 
