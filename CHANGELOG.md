@@ -8,7 +8,7 @@ x.x.x Release notes (yyyy-MM-dd)
 * Renamed the `RealmInsertionModel<T>` type to `Unmanaged<T>` to simplify and highlight its usage.
 
 ### Enhancements
-* Class-based models (i.e. user defined classes extending `Realm.Object` and passed through the `schema` when opening a Realm), will now create object when their constructor is called:
+* Class-based models (i.e. user defined classes extending `Realm.Object` and passed as a `schema` in a Realm configuration) will now create an object in the database when their constructor is called:
 
 ```ts
 class Person extends Realm.Object<Person> {
