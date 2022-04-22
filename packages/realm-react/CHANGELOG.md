@@ -1,3 +1,35 @@
+x.x.x Release notes (yyyy-MM-dd)
+=============================================================
+### Enhancements
+* Add AppProvider and useApp hook.  Usage example:
+```
+import {AppProvider} from '@realm/react'
+//...
+// Wrap your RealmProvider with the AppProvider and provide an appId
+<AppProvider id={appId}>
+	<RealmProvider sync={{user, flexible: true}}>
+	//...
+	</RealmProvider>
+</AppProvider>
+
+// Access the app instance using the useApp hook
+import {useApp} from '@realm/react'
+
+const SomeComponent = () => {
+	const app = useApp()
+
+	//...
+}
+```
+
+### Fixed
+* None.
+
+### Compatibility
+* None.
+### Internal
+* None.
+
 0.2.1 Release notes (2022-03-24)
 =============================================================
 ### Enhancements
