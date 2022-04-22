@@ -65,12 +65,14 @@ void RJSInvalidateCaches()
     realm::app::App::clear_cached_apps();
 }
 
+// Note: This must be called before RJSInvalidateCaches, otherwise the app cache
+// will have been cleared and so no sync sessions will be closed
 void RJSCloseSyncSessions()
 {
     // Force all sync sessions to close immediately. This prevents the new JS thread
     // from opening a new sync session while the old one is still active when reloading
     // in dev mode.
-    realm::_impl::RealmCoordinator::log_out_all_sync_sessions();
+    realm::app::App::close_all_sync_sessions();
 }
 
 } // extern "C"
